@@ -112,13 +112,13 @@ struct SelfDeletingTaskA : ITaskSet
 
 static const int RUNS       = 10;
 
-int main0(int argc, const char * argv[])
+extern "C" int main0(int argc, const char * argv[])
 {
     g_TS.Initialize();
 
     for( int run = 0; run< RUNS; ++run )
     {
-        g_TS.AddTaskSetToPipe( new SelfDeletingTaskA() );
+        g_TS.AddTaskSetToPipe(new SelfDeletingTaskA());
     }
     g_TS.WaitforAllAndShutdown();
 

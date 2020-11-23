@@ -39,7 +39,15 @@ public class MainActivity extends AppCompatActivity {
         mHelper.onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
 
-    public static native void nTest0();
+    @Override
+    protected void onStop() {
+        nReleaseTimer();
+        super.onStop();
+    }
+
+    public static native void nTest0(); //
+    public static native void nTestTimer();
+    public static native void nReleaseTimer();
 
     public void onClickCompletion(View view) {
         new Thread(new Runnable() {
@@ -48,5 +56,11 @@ public class MainActivity extends AppCompatActivity {
                 nTest0();
             }
         }).start();
+    }
+    public void onClickTestTimer(View view) {
+        nTestTimer();
+    }
+    public void onClickTimerEnd(View view) {
+        nReleaseTimer();
     }
 }

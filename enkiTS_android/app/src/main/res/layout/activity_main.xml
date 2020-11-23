@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:padding="10dp"
     tools:context=".MainActivity">
 
@@ -17,7 +18,15 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="test ----"
+        android:text="test timer start"
+        android:onClick="onClickTestTimer"
+        android:textAllCaps="false"
+        />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="release timer"
+        android:onClick="onClickTimerEnd"
         android:textAllCaps="false"
         />
 
