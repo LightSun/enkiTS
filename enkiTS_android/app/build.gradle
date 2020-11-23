@@ -13,6 +13,7 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
+        //CCORE_LINUX, CCORE_ANDROID, CCORE_MAC, CCORE_IOS
         externalNativeBuild {
             cmake {
                 cppFlags "-std=c++11 -DCCORE_ANDROID"
