@@ -88,6 +88,7 @@ struct SelfDeletingTaskA : ITaskSet
 {
     SelfDeletingTaskA()
     {
+        //SelfDeletingTaskB ->依赖 m_TaskDeleter ->依赖 this.
         m_TaskDeleter.SetDependency( m_TaskDeleter.m_Dependency, this );
         SelfDeletingTaskB* pNextTask = new SelfDeletingTaskB();
         // we set the dependency of pNextTask on the task deleter, not on this
@@ -110,7 +111,7 @@ struct SelfDeletingTaskA : ITaskSet
     CompletionActionDelete m_TaskDeleter;
 };
 
-static const int RUNS       = 10;
+static const int RUNS       = 1;
 
 extern "C" int main0(int argc, const char * argv[])
 {
